@@ -6,7 +6,7 @@ ROOT.gROOT.SetBatch(True)
 ROOT.gStyle.SetOptStat(0)
 ROOT.TH1.SetDefaultSumw2(True)
 
-pT_bins = [250, 400, 550, 700, 1000]
+pT_bins = [200, 250, 300, 350, 400, 500, 600, 700, 800]
 def pt_bin_index(x, edges):
     for k in range(len(edges) - 1):
         if edges[k] <= x < edges[k+1]:
@@ -94,7 +94,7 @@ def process_file(input_file):
 
 def main():
     eos_path = "/eos/user/s/scavanau/Mono-V/Genmatching/Files"
-    files = sorted(glob.glob(os.path.join(eos_path, "20250822_130953_Run3Summer22NanoAODv12_*.root")))[:20]
+    files = sorted(glob.glob(os.path.join(eos_path, "20250822_130953_Run3Summer22NanoAODv12_*.root")))[:31]
 
     for f in files:
         process_file(f)
