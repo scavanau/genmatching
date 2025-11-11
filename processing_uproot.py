@@ -21,8 +21,8 @@ def make_hists():
         "h_pt":      ROOT.TH1F("h_pt", "FatJet p_{T};p_{T} [GeV];Events", 40, 0, 1000),
         "h_den_pt":  ROOT.TH1F("h_den_pt", "Denominator;p_{T} [GeV];Events", len(pT_bins)-1, pt_edges),
         "h_num_pt":  ROOT.TH1F("h_num_pt", "Numerator;p_{T} [GeV];Events",   len(pT_bins)-1, pt_edges),
-        "h_den_msd": ROOT.TH1F("h_den_msoftdrop", "Denominator; msoftdrop [GeV];Events", 40, 0, 200),
-        "h_num_msd": ROOT.TH1F("h_num_msoftdrop", "Numerator;   msoftdrop [GeV];Events", 40, 0, 200),
+        "h_den_msd": ROOT.TH1F("h_den_msd", "Denominator; msoftdrop [GeV];Events", 40, 0, 200),
+        "h_num_msd": ROOT.TH1F("h_num_msd", "Numerator;   msoftdrop [GeV];Events", 40, 0, 200),
         "h_msd":     ROOT.TH1F("h_msd", "Msoftdrop;M_{softdrop};Events", 40, 0, 200),
         "h_den_dr":  ROOT.TH1F("h_den_dr", "All pairs;#DeltaR(FatJet,Z);Events", 40, 0.0, 2.0),
         "h_num_dr":  ROOT.TH1F("h_num_dr", "Matched (pass #DeltaR);#DeltaR(FatJet,Z);Events", 40, 0.0, 2.0),
@@ -105,6 +105,7 @@ def process_file(input_file):
     for val in num_dr:   h["h_num_dr"].Fill(val)
     for val in den_dr:   h["h_den_dr"].Fill(val)
     for val in num_pt:   h["h_num_pt"].Fill(val)
+    for val in den_pt:   h["h_den_pt"].Fill(val)
     for val in num_msd:  h["h_num_msd"].Fill(val)
     for val in den_msd:  h["h_den_msd"].Fill(val)
     for val in dr_pass:  h["h_dr"].Fill(val)
