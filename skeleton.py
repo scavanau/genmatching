@@ -27,11 +27,11 @@ class Skeleton(Module):
 
         # Select fatjets that overlap with gen bosons
         overlap = has_overlap(obj_toclean=cleaned_fatjets, clean_against=genpart, max_dr=0.4)
-        cleaned_fatjets = cleaned_fatjets[overlap]
-
-        print(f"cleaned_fatjet_collection: {cleaned_fatjets}")
-        print(f"genpart_collection: {genpart}")
+        tagged_fatjets = cleaned_fatjets[overlap]
+        mistagged_fatjets = cleaned_fatjets[~overlap]
         
         return {
-            f"GenPart_collection": genpart,
+            f"Tagged_fatjet_collection": tagged_fatjets,
+            f"Mistagged_fatjet_collection": mistagged_fatjets,
+            f"Genpart_collection": genpart,
         }
